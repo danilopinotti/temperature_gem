@@ -14,11 +14,11 @@ module Temperature
     def to_fahrenheit
       case @type
       when 'celsius'
-        @value * (9 / 5.0) + 32
+        (@value * (9 / 5.0) + 32).round(2)
       when 'kelvin'
-        @value * 9.0 / 5 - 459.67
+        (@value * 9.0 / 5 - 459.67).round(2)
       when 'fahrenheit'
-        @value
+        (@value).round(2)
       else
         false
       end
@@ -27,11 +27,11 @@ module Temperature
     def to_kelvin
       case @type
       when 'celsius'
-        @value + 273.15
+        (@value + 273.15).round(2)
       when 'kelvin'
-        @value
+        (@value).round(2)
       when 'fahrenheit'
-        (@value + 459.67) * 5 / 9.0
+        ((@value + 459.67) * 5 / 9.0).round(2)
       else
         false
       end
@@ -40,11 +40,11 @@ module Temperature
     def to_celsius
       case @type
       when 'celsius'
-        @value
+        (@value).round(2)
       when 'kelvin'
-        @value - 273.15
+        (@value - 273.15).round(2)
       when 'fahrenheit'
-        (@value - 32) * 5.0 / 9
+        ((@value - 32) * 5.0 / 9).round(2)
       else
         false
       end
